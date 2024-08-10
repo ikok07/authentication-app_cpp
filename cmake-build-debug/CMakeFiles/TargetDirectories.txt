@@ -1,0 +1,3 @@
+/home/kok/CLionProjects/authentication-app_cpp/cmake-build-debug/CMakeFiles/authentication_app_cpp.dir
+/home/kok/CLionProjects/authentication-app_cpp/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/kok/CLionProjects/authentication-app_cpp/cmake-build-debug/CMakeFiles/rebuild_cache.dir
