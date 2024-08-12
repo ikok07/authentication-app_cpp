@@ -303,6 +303,15 @@ authentication_app_cpp_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 authentication_app_cpp_SOURCE_DIR:STATIC=/home/kok/CLionProjects/authentication-app_cpp
 
+//The directory containing a CMake configuration file for botan.
+botan_DIR:PATH=/home/kok/.vcpkg-clion/vcpkg/installed/x64-linux/share/botan
+
+//The directory containing a CMake configuration file for cryptopp.
+cryptopp_DIR:PATH=/home/kok/.vcpkg-clion/vcpkg/installed/x64-linux/share/cryptopp
+
+//The directory containing a CMake configuration file for libsodium.
+libsodium_DIR:PATH=libsodium_DIR-NOTFOUND
+
 //The directory containing a CMake configuration file for nlohmann_json.
 nlohmann_json_DIR:PATH=/home/kok/.vcpkg-clion/vcpkg/installed/x64-linux/share/nlohmann_json
 

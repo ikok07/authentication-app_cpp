@@ -1,10 +1,18 @@
 #include <iostream>
-#include <utility>
 #include <curlpp/cURLpp.hpp>
 
 #include "../include/authentication-app/Application.h"
 #include "../include/authentication-app/Auth.h"
 #include "../include/authentication-app/Request.h"
+
+#include <botan/hash.h>
+#include <botan/hex.h>
+#include <botan/cipher_mode.h>
+#include <botan/aead.h>
+#include <botan/auto_rng.h>
+#include <botan/rng.h>
+
+#include "Cryptor.hpp"
 
 using namespace std;
 

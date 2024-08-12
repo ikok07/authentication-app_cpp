@@ -10,7 +10,7 @@
 #include "../../JSONParseable.h"
 using std::string;
 
-class SignupRequest : public JSONParseable {
+class SignupRequest final : public JSONParseable {
 public:
     SignupRequest(const string& username, const string& email, const string& password, const string& confirmPassword)
         : username{username}, email{email}, password{password}, confirmPassword{confirmPassword} {}

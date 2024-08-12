@@ -11,6 +11,9 @@
 
 #include <fstream>
 
+#include "../include/authentication-app/network/request/LoginRequest.hpp"
+#include "../include/authentication-app/network/response/LoginResponse.hpp"
+
 using namespace std;
 
 User *Auth::user = nullptr;
@@ -20,7 +23,21 @@ bool Auth::is_authenticated() {
 }
 
 void Auth::login() {
-    Auth::user = new User{};
+    string email, password;
+    cout << "Enter account email: ";
+    cin >> email;
+    cout << "Enter account password: ";
+    cin >> password;
+
+    LoginRequest body{email, password};
+    Request req{"http://localhost:8080/api/v1/user/login"};
+
+    auto res = req.post<LoginResponse, LoginRequest>(body);
+    save_credentials(res.get_token());
+
+    auto *new_user = new User();
+    *new_user = res.get_user();
+    user = new_user;
 }
 
 void Auth::signup() {

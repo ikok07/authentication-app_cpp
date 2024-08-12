@@ -15,6 +15,10 @@ add_executable(authentication_app_cpp src/main.cpp
         include/authentication-app/RequestException.h
         include/authentication-app/network/request/SignupRequest.hpp
         include/authentication-app/network/response/SignupResponse.hpp
+        include/authentication-app/network/request/LoginRequest.hpp
+        include/authentication-app/network/response/LoginResponse.hpp
+        src/Cryptor.cpp
+        src/Cryptor.hpp
 )
 
 find_package(unofficial-curlpp CONFIG REQUIRED)
@@ -22,3 +26,6 @@ target_link_libraries(authentication_app_cpp PRIVATE unofficial::curlpp::curlpp)
 
 find_package(nlohmann_json CONFIG REQUIRED)
 target_link_libraries(authentication_app_cpp PRIVATE nlohmann_json::nlohmann_json)
+
+find_package(botan CONFIG REQUIRED)
+target_link_libraries(authentication_app_cpp PRIVATE Botan::Botan-static)
