@@ -14,6 +14,7 @@ public:
     static void signup();
 private:
     static void save_credentials(const string& token);
+    static void load_credentials();
 };
 
 

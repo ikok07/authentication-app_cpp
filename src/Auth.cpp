@@ -11,14 +11,20 @@
 
 #include <fstream>
 
+#include "Cryptor.hpp"
 #include "../include/authentication-app/network/request/LoginRequest.hpp"
+#include "../include/authentication-app/network/response/GetUserResponse.hpp"
 #include "../include/authentication-app/network/response/LoginResponse.hpp"
+#include "../include/authentication-app/exceptions/FileNotFound.hpp"
 
 using namespace std;
 
 User *Auth::user = nullptr;
 
 bool Auth::is_authenticated() {
+    if (user == nullptr) load_credentials();
+    else return true;
+
     return user != nullptr;
 }
 
@@ -64,8 +70,23 @@ void Auth::signup() {
 }
 
 void Auth::save_credentials(const string& token) {
-    ofstream file{"auth.bin", ios::out | ios::binary};
-    if (!file) throw ios_base::failure("Failed to open file for writing!");
-    file.write(token.c_str(), static_cast<long int>(token.length() + 1));
-    file.close();
+    Cryptor cryptor{token};
+    cryptor.encrypt_text();
+    cryptor.save_to_file("auth.bin");
+}
+
+void Auth::load_credentials() {
+    try {
+        Cryptor cryptor;
+        const string& token = cryptor.decrypt_from_file("auth.bin");
+        rheader_t auth_header = {"Authorization", "Bearer " + token};
+        roptions_t opts = {.headers = {auth_header}};
+        Request req{"http://localhost:8080/api/v1/user/me", &opts};
+        auto res = req.get<GetUserResponse>();
+        User *new_user = new User();
+        *new_user = res.get_user();
+        user = new_user;
+    }
+    catch (const FileNotFound&) {}
+    catch (const Botan::Invalid_Argument&) {}
 }

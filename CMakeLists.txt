@@ -19,6 +19,8 @@ add_executable(authentication_app_cpp src/main.cpp
         include/authentication-app/network/response/LoginResponse.hpp
         src/Cryptor.cpp
         src/Cryptor.hpp
+        include/authentication-app/network/response/GetUserResponse.hpp
+        include/authentication-app/exceptions/FileNotFound.hpp
 )
 
 find_package(unofficial-curlpp CONFIG REQUIRED)

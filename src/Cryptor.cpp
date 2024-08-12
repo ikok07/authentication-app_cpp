@@ -10,6 +10,8 @@
 #include <botan/hex.h>
 #include <fstream>
 
+#include "../include/authentication-app/exceptions/FileNotFound.hpp"
+
 string Cryptor::encrypt_text() {
     if (text.empty()) throw std::runtime_error("There isn't any text set in order to be encrypted!");
     Botan::AutoSeeded_RNG rng;
@@ -40,11 +42,11 @@ void Cryptor::save_to_file(const string &filename) {
 
 string& Cryptor::decrypt_from_file(const string &filename) {
     std::ifstream file{filename, std::ios::in | std::ios::binary};
-    if (file.fail()) throw std::runtime_error("Failed to open file for reading!");
+    if (file.fail()) throw FileNotFound("Failed to open file for reading!");
     const auto dec = Botan::AEAD_Mode::create_or_throw("AES-256/GCM", Botan::Cipher_Dir::Decryption);
 
     file.read(reinterpret_cast<char*>(this->key.data()), 32);
-
+    if (this->key.empty()) {};
     this->iv.resize(dec->default_nonce_length());
     file.read(reinterpret_cast<char*>(this->iv.data()), dec->default_nonce_length());
 
