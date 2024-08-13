@@ -11,7 +11,7 @@
 
 #include <fstream>
 
-#include "Cryptor.hpp"
+#include "../include/authentication-app/Cryptor.hpp"
 #include "../include/authentication-app/network/request/LoginRequest.hpp"
 #include "../include/authentication-app/network/response/GetUserResponse.hpp"
 #include "../include/authentication-app/network/response/LoginResponse.hpp"
@@ -22,7 +22,7 @@ using namespace std;
 User *Auth::user = nullptr;
 
 bool Auth::is_authenticated() {
-    if (user == nullptr) load_credentials();
+    if (user == nullptr) get_credentials();
     else return true;
 
     return user != nullptr;
@@ -75,7 +75,7 @@ void Auth::save_credentials(const string& token) {
     cryptor.save_to_file("auth.bin");
 }
 
-void Auth::load_credentials() {
+const unique_ptr<string> Auth::get_credentials() {
     try {
         Cryptor cryptor;
         const string& token = cryptor.decrypt_from_file("auth.bin");
@@ -86,7 +86,8 @@ void Auth::load_credentials() {
         User *new_user = new User();
         *new_user = res.get_user();
         user = new_user;
+        return make_unique<string>(token);
     }
-    catch (const FileNotFound&) {}
-    catch (const Botan::Invalid_Argument&) {}
+    catch (const FileNotFound&) {return nullptr;}
+    catch (const Botan::Invalid_Argument&) {return nullptr;}
 }

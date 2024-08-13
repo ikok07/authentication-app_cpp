@@ -89,6 +89,14 @@ build CMakeFiles/authentication_app_cpp.dir/src/Cryptor.cpp.o: CXX_COMPILER__aut
   OBJECT_DIR = CMakeFiles/authentication_app_cpp.dir
   OBJECT_FILE_DIR = CMakeFiles/authentication_app_cpp.dir/src
 
+build CMakeFiles/authentication_app_cpp.dir/src/DetailsManager.cpp.o: CXX_COMPILER__authentication_app_cpp_unscanned_Debug /home/kok/CLionProjects/authentication-app_cpp/src/DetailsManager.cpp || cmake_object_order_depends_target_authentication_app_cpp
+  DEFINES = -DCURL_STATICLIB
+  DEP_FILE = CMakeFiles/authentication_app_cpp.dir/src/DetailsManager.cpp.o.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  INCLUDES = -isystem /home/kok/.vcpkg-clion/vcpkg/installed/x64-linux/include
+  OBJECT_DIR = CMakeFiles/authentication_app_cpp.dir
+  OBJECT_FILE_DIR = CMakeFiles/authentication_app_cpp.dir/src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target authentication_app_cpp
@@ -97,7 +105,7 @@ build CMakeFiles/authentication_app_cpp.dir/src/Cryptor.cpp.o: CXX_COMPILER__aut
 #############################################
 # Link the executable authentication_app_cpp
 
-build authentication_app_cpp: CXX_EXECUTABLE_LINKER__authentication_app_cpp_Debug CMakeFiles/authentication_app_cpp.dir/src/main.cpp.o CMakeFiles/authentication_app_cpp.dir/src/Auth.cpp.o CMakeFiles/authentication_app_cpp.dir/src/Application.cpp.o CMakeFiles/authentication_app_cpp.dir/src/Request.cpp.o CMakeFiles/authentication_app_cpp.dir/src/Cryptor.cpp.o | /home/kok/.vcpkg-clion/vcpkg/installed/x64-linux/debug/lib/libcurlpp.a /home/kok/.vcpkg-clion/vcpkg/installed/x64-linux/debug/lib/libbotan-3.a /home/kok/.vcpkg-clion/vcpkg/installed/x64-linux/debug/lib/libcurl-d.a /home/kok/.vcpkg-clion/vcpkg/installed/x64-linux/debug/lib/libssl.a /home/kok/.vcpkg-clion/vcpkg/installed/x64-linux/debug/lib/libcrypto.a /home/kok/.vcpkg-clion/vcpkg/installed/x64-linux/debug/lib/libz.a
+build authentication_app_cpp: CXX_EXECUTABLE_LINKER__authentication_app_cpp_Debug CMakeFiles/authentication_app_cpp.dir/src/main.cpp.o CMakeFiles/authentication_app_cpp.dir/src/Auth.cpp.o CMakeFiles/authentication_app_cpp.dir/src/Application.cpp.o CMakeFiles/authentication_app_cpp.dir/src/Request.cpp.o CMakeFiles/authentication_app_cpp.dir/src/Cryptor.cpp.o CMakeFiles/authentication_app_cpp.dir/src/DetailsManager.cpp.o | /home/kok/.vcpkg-clion/vcpkg/installed/x64-linux/debug/lib/libcurlpp.a /home/kok/.vcpkg-clion/vcpkg/installed/x64-linux/debug/lib/libbotan-3.a /home/kok/.vcpkg-clion/vcpkg/installed/x64-linux/debug/lib/libcurl-d.a /home/kok/.vcpkg-clion/vcpkg/installed/x64-linux/debug/lib/libssl.a /home/kok/.vcpkg-clion/vcpkg/installed/x64-linux/debug/lib/libcrypto.a /home/kok/.vcpkg-clion/vcpkg/installed/x64-linux/debug/lib/libz.a
   FLAGS = -g
   LINK_FLAGS = -fstack-protector -m64 -pthread
   LINK_LIBRARIES = /home/kok/.vcpkg-clion/vcpkg/installed/x64-linux/debug/lib/libcurlpp.a  /home/kok/.vcpkg-clion/vcpkg/installed/x64-linux/debug/lib/libbotan-3.a  /home/kok/.vcpkg-clion/vcpkg/installed/x64-linux/debug/lib/libcurl-d.a  /home/kok/.vcpkg-clion/vcpkg/installed/x64-linux/debug/lib/libssl.a  /home/kok/.vcpkg-clion/vcpkg/installed/x64-linux/debug/lib/libcrypto.a  -ldl  /home/kok/.vcpkg-clion/vcpkg/installed/x64-linux/debug/lib/libz.a

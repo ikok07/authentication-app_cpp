@@ -12,7 +12,7 @@
 #include <botan/auto_rng.h>
 #include <botan/rng.h>
 
-#include "Cryptor.hpp"
+#include "../include/authentication-app/Cryptor.hpp"
 
 using namespace std;
 
@@ -21,8 +21,11 @@ int main() {
 
     while (!Auth::is_authenticated()) Application::display_auth();
 
+    cout << "Account info: " << endl;
     cout << Auth::user->username << '\n';
     cout << Auth::user->email << endl;
+
+    Application::display_main();
 
     return 0;
 }

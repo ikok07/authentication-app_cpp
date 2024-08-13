@@ -12,9 +12,9 @@ public:
     static bool is_authenticated();
     static void login();
     static void signup();
+    static const std::unique_ptr<string> get_credentials();
 private:
     static void save_credentials(const string& token);
-    static void load_credentials();
 };
 
 

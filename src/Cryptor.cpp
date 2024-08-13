@@ -2,7 +2,7 @@
 // Created by kok on 12.08.24.
 //
 
-#include "Cryptor.hpp"
+#include "../include/authentication-app/Cryptor.hpp"
 
 #include <iostream>
 

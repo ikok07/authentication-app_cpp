@@ -10,6 +10,7 @@
 class Application {
 public:
     static void display_auth();
+    static void display_main();
 };
 
 
